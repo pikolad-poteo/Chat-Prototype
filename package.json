@@ -2,12 +2,12 @@
   "name": "chatts",
   "version": "1.0.0",
   "description": "Simple chat using Express, Socket.io, and TypeScript (MVC)",
-  "main": "dist/server.js",
+  "main": "dist/server.ts",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "tunnel": "ngrok http --authtoken ВАШ_ТОКЕН 3000"
+    "tunnel": "ngrok http --authtoken 36bd4jkqxYUvRpXYzGpWFMb2tA4_2LA6Xx8hKG3A37U1FfM8X 3000"
   },
   "keywords": [
     "chat",
@@ -29,6 +29,6 @@
     "@types/node": "^20.11.17",
     "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.9.3"
   }
 }
