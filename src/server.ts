@@ -13,16 +13,20 @@ const app: Application = express();
 app.use(cors());
 app.use(express.json());
 
+// статика (index.html, client.js, styles.css)
 const publicDir = path.resolve(process.cwd(), "public");
 app.use(express.static(publicDir));
 
+// REST-маршруты чата
 app.use(chatRoutes);
 
-app.get("/health", (_req, res) => {
-  res.json({ status: "ok" });
+// корневой роут
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
 });
 
 const server = http.createServer(app);
+
 const io = new SocketIOServer(server, {
   cors: {
     origin: "*",

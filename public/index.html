@@ -16,19 +16,31 @@
       <div class="cloud cloud-2"></div>
       <div class="coin coin-1"></div>
       <div class="coin coin-2"></div>
+      <div class="bush bush-1"></div>
+      <div class="bush bush-2"></div>
+      <div class="ground"></div>
     </div>
-    <main class="shell">
+
+    <main class="app">
       <header class="header">
-        <div>
-          <p class="eyebrow">Super Socket Adventure</p>
-          <h1>Mushroom Kingdom Chat</h1>
-          <p class="lede">
-            Real-time chatter for plumbers, princesses, and Koopas. Keep it light, keep it kind!
-          </p>
+        <div class="logo">
+          <div class="logo-mark" aria-hidden="true">
+            <div class="logo-mark__face">
+              <span class="logo-mark__eye logo-mark__eye--left"></span>
+              <span class="logo-mark__eye logo-mark__eye--right"></span>
+              <span class="logo-mark__mouth"></span>
+            </div>
+          </div>
+          <div class="logo__text">
+            <h1 class="logo__title">Game Pikolad chat for true people</h1>
+            <p class="logo__subtitle">This chat is specifically designed to impress Sergey!</p>
+          </div>
         </div>
+
         <div class="status-card">
           <p class="status-title">Server</p>
           <p id="status-pill" class="status-pill status-pill--offline">Offline</p>
+          <p id="online-counter" class="online-counter">0 players online</p>
           <p class="status-hint">Start the server, then share your ngrok URL.</p>
         </div>
       </header>
@@ -40,7 +52,7 @@
               <span class="flag"></span>
               <span>Room</span>
             </div>
-            <span class="brick-label">Mario vibes</span>
+            <span class="brick-label">Discord vibes</span>
           </div>
           <div id="messages" class="chat__messages" aria-live="polite"></div>
         </div>
@@ -60,6 +72,7 @@
               rows="3"
             ></textarea>
           </label>
+          <p id="char-counter" class="char-counter">0 / 500</p>
           <button id="send" class="button">
             <span class="button__shine"></span>
             Send

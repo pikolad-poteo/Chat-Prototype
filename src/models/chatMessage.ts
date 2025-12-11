@@ -16,24 +16,28 @@ export class ChatModel {
     return [...this.messages];
   }
 
-  // Добавить новое сообщение; возвращаем итоговый объект для рассылки клиентам
+  // Добавить новое сообщение
   public add(author: string, text: string): ChatMessage {
     const trimmedAuthor = (author ?? "").trim() || "Anonymous";
     const trimmedText = (text ?? "").trim();
 
     if (!trimmedText) {
-      throw new Error("Текст сообщения пуст");
+      throw new Error("Сообщение не может быть пустым");
     }
+
+    const safeAuthor = trimmedAuthor.slice(0, 30);
+    const safeText = trimmedText.slice(0, 500);
 
     const message: ChatMessage = {
       id: this.nextId++,
-      author: trimmedAuthor.slice(0, 30),
-      text: trimmedText.slice(0, 500),
+      author: safeAuthor,
+      text: safeText,
       timestamp: Date.now(),
     };
 
     this.messages.push(message);
 
+    // Ограничиваем длину истории
     if (this.messages.length > this.maxMessages) {
       this.messages.shift();
     }
